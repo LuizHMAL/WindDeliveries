@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import DroneList from '../components/DroneList';
-import LocationsList from '../components/LocationsList';
-import DeliveriesList from '../components/DeliveriesList'; 
+import DroneList from '../pages/DroneList';
+import LocationsList from '../pages/LocationsList';
+import DeliveriesList from '../pages/DeliveriesList'; 
 import RequestDeliveryForm from '../components/RequestDelivery';
 
 function App() {
@@ -13,9 +13,9 @@ function App() {
 
         <nav style={{ marginBottom: '20px' }}>
           <Link to="/drones" style={{ marginRight: '15px' }}>Drones</Link>
-          <Link to="/locations">Localizações</Link>
-          <Link to="/deliveries" style={{ marginLeft: '15px' }}>Entregas</Link>
-          <Link to="/request_a_delivery" style={{ marginLeft: '15px' }}>Solicitar Entrega</Link>
+          <Link to="/locations" style={{ marginRight: '15px' }}>Localizações</Link>
+          <Link to="/deliveries" style={{ marginRight: '15px' }}>Entregas</Link>
+          <Link to="/request_a_delivery" style={{ marginRight: '15px' }}>Solicitar Entrega</Link>
         </nav>
 
         <Routes>
