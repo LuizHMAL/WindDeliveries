@@ -29,15 +29,23 @@ function DroneList() {
   return (
     <div>
       <h2>Lista de Drones</h2>
-      <ul>
+      <ul style={{ listStyle: 'none', padding: 0 }}>
         {drones.map((drone, index) => (
-          <li key={index}>
-            <strong>Modelo:</strong> {drone.model} <br />
-            <strong>Bateria:</strong> {drone.battery}% <br />
-            <strong>Status:</strong> {drone.status} <br />
-            <strong>Capacidade:</strong> {drone.capacity}kg <br />
-            <strong>Distância Máx:</strong> {drone.distance}m <br />
-            <strong>Localização:</strong> ({drone.location?.x}, {drone.location?.y})
+          <li
+            key={index}
+            style={{
+              border: '1px solid #ccc',
+              padding: '10px',
+              marginBottom: '10px',
+              borderRadius: '5px',
+            }}
+          >
+            <p><strong>Modelo:</strong> {drone.model}</p>
+            <p><strong>Bateria:</strong> {drone.battery}%</p>
+            <p><strong>Status:</strong> {drone.status}</p>
+            <p><strong>Capacidade:</strong> {drone.capacity}kg</p>
+            <p><strong>Distância Máx:</strong> {drone.distance}m</p>
+            <p><strong>Localização:</strong> ({drone.location_x}, {drone.location_y})</p>
           </li>
         ))}
       </ul>
