@@ -1,5 +1,9 @@
 # React + Vite
-
+# Backend localizado em :https://github.com/LuizHMAL/backend
+## Para executar o programa, execute no terminal
+```
+npm run dev
+```
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
