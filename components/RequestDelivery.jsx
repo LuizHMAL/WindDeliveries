@@ -4,18 +4,19 @@ function RequestDeliveryForm() {
   const [droneId, setDroneId] = useState('');
   const [destination, setDestination] = useState('');
   const [payload, setPayload] = useState('');
+  const [priority, setPriority] = useState('normal'); 
   const [message, setMessage] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const price = parseFloat(payload) * 10; // R$10 por kg
+    const price = parseFloat(payload) * 10; 
     const delivery = {
       droneId: parseInt(droneId),
       destinationId: parseInt(destination),
       price,
-      priority: 'normal',
-      payload: parseFloat(payload)
+      priority, 
+      weight: parseFloat(payload) 
     };
 
     try {
@@ -30,6 +31,7 @@ function RequestDeliveryForm() {
         setDroneId('');
         setDestination('');
         setPayload('');
+        setPriority('normal');
       } else {
         const data = await response.json();
         setMessage(`Erro ao solicitar entrega: ${data.error || 'Erro desconhecido'}`);
@@ -74,6 +76,19 @@ function RequestDeliveryForm() {
             min="0.1"
             step="0.1"
           />
+        </div>
+
+        <div>
+          <label>Prioridade:</label><br />
+          <select
+            value={priority}
+            onChange={(e) => setPriority(e.target.value)}
+            required
+          >
+            <option value="normal">Normal</option>
+            <option value="urgente">Urgente</option>
+            <option value="critica">Crítica</option>
+          </select>
         </div>
 
         <button type="submit" style={{ marginTop: '10px' }}>Solicitar</button>
